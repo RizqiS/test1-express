@@ -1,14 +1,6 @@
 const validator = require("express-validator");
-const mongoose = require("mongoose");
-const Products = require("../models/products-schema");
+const Products = require("../models/schemas/store/products-schema");
 const HttpError = require("../models/HttpError");
-const apiMongoDB =
-  "mongodb+srv://rizqi:jQxpLZyxbhjLvP8f@atlascluster.yccwwdp.mongodb.net/products_db?retryWrites=true&w=majority&appName=AtlasCluster";
-
-mongoose
-  .connect(apiMongoDB)
-  .then(() => console.log("connect database"))
-  .catch(() => console.log("failed connect database"));
 
 async function createProducts(req, res, next) {
   const errors = validator.validationResult(req);
